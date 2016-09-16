@@ -13,10 +13,10 @@ echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" > /etc/apt/sour
 sudo apt-get update && sudo apt-get purge lxc-docker
 
 # prerequisites
-sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+sudo apt-get install -y linux-image-extra-$(uname -r) linux-image-extra-virtual
 
 # install 
-sudo apt-get update && sudo apt-get install docker-engine && sudo service docker start
+sudo apt-get update && sudo apt-get install -y docker-engine && sudo service docker start
 
 # verify
 sudo docker run hello-world
