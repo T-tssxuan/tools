@@ -1,0 +1,130 @@
+" let $VIMRUNTIME='/usr/local/Cellar/vim/7.4.1993/share/vim/vim74'
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+Plugin 'L9'
+Plugin 'file:///Users/luoxuan/.vim/bundle/nerdtree'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+Plugin 'mattn/emmet-vim'
+Plugin 'Valloric/MatchTagAlways'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'toyamarinyon/vim-swift'
+Plugin 'godlygeek/tabular'
+Plugin 'file:////Users/luoxuan/.vim/bundle/YouCompleteMe'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'einars/js-beautify'
+Plugin 'pangloss/vim-javascript'
+Plugin 'https://github.com/HerringtonDarkholme/yats.vim'
+Plugin 'https://github.com/tomtom/tcomment_vim.git'
+Plugin 'https://github.com/christoomey/vim-sort-motion.git'
+Plugin 'https://github.com/tpope/vim-surround.git'
+Plugin 'https://github.com/FooSoft/vim-argwrap.git'
+Plugin 'artur-shaik/vim-javacomplete2'
+
+nnoremap <silent> <leader>a :ArgWrap<CR>
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+filetype plugin on 
+runtime macros/matchit.vim
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+map <C-n> :NERDTreeToggle<CR>
+nnoremap ]t vatatv
+nnoremap [t vatatov
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+syntax enable
+set nocompatible
+set backspace=2
+filetype plugin indent on
+set tabstop=4
+set shiftwidth=4
+" set softtabstop=4
+set expandtab
+set incsearch
+set laststatus=2
+set colorcolumn=80
+
+nmap ,t :NERDTreeFind<CR>
+
+" set current line current line number and other relative line number
+set number
+set relativenumber
+set numberwidth=1
+highlight LineNr ctermfg=gray
+
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+autocmd Filetype json setlocal ts=2 sts=2 sw=2
+autocmd Filetype html setlocal colorcolumn=
+
+" for js beautify
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for json 
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" for jsx 
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+" Uncomment the following to have Vim jump to the last position when
+" reopening a file
+if has("autocmd")
+   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe " normal! g'\"" | endif
+endif
+
+let g:ycm_global_ycm_extra_conf = '/Users/luoxuan/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_python_binary_path = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
+" let g:ycm_show_diagnostics_ui = 0
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+
+" for YouCompleteMe typescript
+" if !exists("g:ycm_semantic_triggers")
+"     let g:ycm_semantic_triggers = {}
+" endif
+" let g:ycm_semantic_triggers['typescript'] = ['.']
+
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key='`'
+" let g:user_emmet_expandabbr_key = '<Tab>'
+
+nnoremap <c-p> :set paste <cr>
+nnoremap <c-i> :set nopaste <cr>
