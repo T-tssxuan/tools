@@ -17,7 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 Plugin 'L9'
-Plugin 'file:///Users/luoxuan/.vim/bundle/nerdtree'
+Plugin 'file:///your_home_path/.vim/bundle/nerdtree'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
@@ -26,7 +26,7 @@ Plugin 'Valloric/MatchTagAlways'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'toyamarinyon/vim-swift'
 Plugin 'godlygeek/tabular'
-Plugin 'file:////Users/luoxuan/.vim/bundle/YouCompleteMe'
+Plugin 'file:///your_home_path/.vim/bundle/YouCompleteMe'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -109,7 +109,7 @@ if has("autocmd")
    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe " normal! g'\"" | endif
 endif
 
-let g:ycm_global_ycm_extra_conf = '/Users/luoxuan/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/your_home_path/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_python_binary_path = '/Library/Frameworks/Python.framework/Versions/3.5/bin/python3'
 " let g:ycm_show_diagnostics_ui = 0
