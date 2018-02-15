@@ -127,4 +127,9 @@ let g:user_emmet_leader_key='`'
 " let g:user_emmet_expandabbr_key = '<Tab>'
 
 nnoremap <c-p> :set paste <cr>
-nnoremap <c-i> :set nopaste <cr>
+nnoremap <c-u> :set nopaste <cr>
+autocmd FileType cpp inoremap { {<CR>}<Esc>ko
+autocmd FileType cpp inoremap [ []<Esc>i
+autocmd FileType cpp inoremap ( ()<Esc>i
+autocmd FileType cpp inoremap if if<Space>()<Space>{<CR>}<Esc>kwa
+autocmd Filetype cpp inoremap for for<Space>()<Space>{<CR>}<Esc>kwa
