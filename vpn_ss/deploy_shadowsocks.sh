@@ -13,6 +13,6 @@ echo '
     "timeout":300,
     "method":"aes-256-cfb",
     "fast_open": false
-}'
+}' > /etc/shadowsocks.json
 
 ssserver -c /etc/shadowsocks.json -d start
