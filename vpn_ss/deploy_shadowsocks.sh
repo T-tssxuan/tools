@@ -1,7 +1,7 @@
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install python3-pip
-sudo apt-get install python-pip
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install python3-pip
+sudo apt-get -y install python-pip
 
 echo '
 {
@@ -14,5 +14,7 @@ echo '
     "method":"aes-256-cfb",
     "fast_open": false
 }' > /etc/shadowsocks.json
+
+pip install shadowsocks
 
 ssserver -c /etc/shadowsocks.json -d start
